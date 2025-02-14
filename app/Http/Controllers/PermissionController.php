@@ -44,7 +44,6 @@ class PermissionController extends Controller
     }
 
 
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -75,8 +74,10 @@ class PermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($permissionId)
     {
-        //
+        $permission = Permission::find($permissionId);
+        $permission->delete();
+        return redirect('permissions')->with('status' , 'Permission Deleted successfully' );
     }
 }

@@ -38,7 +38,7 @@
                                     <td>
                                         <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-success">Edit</a>
 
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="{{ route('permissions.delete', $permission->id) }}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
