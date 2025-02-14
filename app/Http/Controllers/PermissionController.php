@@ -12,7 +12,11 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('role-permission.permission.index');
+        $permissions = Permission::get();
+        return view('role-permission.permission.index' , [
+
+            'permissions' => $permissions
+        ]);
     }
 
     /**
@@ -36,23 +40,20 @@ class PermissionController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect('home')->with('status' , 'Permission created successfully' );
+        return redirect('permissions')->with('status' , 'Permission created successfully' );
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Permission $permission)
     {
-        //
+        //return $permission;
+        return view('role-permission.permission.edit', [
+            'permission' => $permission
+        ]);
     }
 
     /**
