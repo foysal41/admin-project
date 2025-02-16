@@ -26,3 +26,4 @@ Route::put('roles/{roleId}/give-permissions',[App\Http\Controllers\RoleControlle
 
 
 Route::resource('users', App\Http\Controllers\UserController::class);
+Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
