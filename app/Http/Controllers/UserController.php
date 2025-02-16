@@ -67,9 +67,15 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        $roles = role::pluck('name', 'name')->all();
+        $userRoles = $user->roles->pluck('name', 'name')->all();
+        return view('role-permission.user.edit', [
+            'user' => $user,
+            'roles'=> $roles,
+            'userRoles' =>$userRoles
+        ]);
     }
 
     /**
