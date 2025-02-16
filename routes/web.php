@@ -17,3 +17,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class, 'destroy'])->name('permissions.delete');
 
+
+
+Route::resource('roles', App\Http\Controllers\RoleController::class);
+Route::get('roles/{rolesId}/delete', [App\Http\Controllers\RoleController::class, 'destroy'])->name('roles.delete');
