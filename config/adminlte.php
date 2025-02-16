@@ -327,6 +327,34 @@ return [
             'label' => 4,
             'label_color' => 'success',
         ],
+
+
+        [
+            'text' => 'Users',
+            'url' => '/users',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Role & Permission',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Roles',
+                    'url' => '/roles',
+                ],
+                [
+                    'text' => 'Permissions',
+                    'url' => '/permissions',
+                ],
+
+            ],
+
+
+        ],
+
+
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -346,8 +374,9 @@ return [
                     'text' => 'level_one',
                     'url' => '#',
                 ],
+
                 [
-                    'text' => 'level_one',
+                    'text' => 'level_two',
                     'url' => '#',
                     'submenu' => [
                         [
@@ -370,12 +399,21 @@ return [
                         ],
                     ],
                 ],
+
                 [
-                    'text' => 'level_one',
+                    'text' => 'level_three',
                     'url' => '#',
                 ],
             ],
         ],
+
+
+
+
+
+
+
+
 
         ['header' => 'labels'],
         [

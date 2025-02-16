@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -87,6 +88,32 @@ class RoleController extends Controller
         $role = role::find($rolesId);
         $role -> delete();
         return redirect('roles')->with('status' , 'Role Update has been delete');
+
+    }
+
+    public function addPermissionToRole($roleId){
+
+        $permissions = Permission::get();
+        $role = Role::findOrFail($roleId);
+        return view('role-permission.role.add-permissions', [
+            'role' => $role,
+            'permissions' => $permissions
+        ]);
+    }
+
+
+    public function givePermissionToRole(Request $request, $roleId)
+    {
+        $request->validate([
+            'permission' => 'required'
+        ]);
+
+        $role= Role::findOrFail($roleId);
+        $role->syncPermissions($request->permission);
+
+        return redirect()->back()->with('status', 'Permissions added to role');
+
+
 
     }
 }

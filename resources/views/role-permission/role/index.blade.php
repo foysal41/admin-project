@@ -36,7 +36,11 @@
                                 <td>{{ $role->id }}</td>
                                 <td>{{$role->name }}</td>
                                 <td>
+
+                                    <a href="{{ url('roles/'. $role->id. '/give-permissions') }}" class="btn btn-success">Add / Edit Role Permission </a>
+
                                     <a href="{{ route('roles.edit' , $role->id) }}" class="btn btn-success">Edit</a>
+
                                     <a href="{{ route('roles.delete' , $role->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?');">Delete</a>
 
 
@@ -61,4 +65,4 @@
 @section('js')
     <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
 @stop
-class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this?');"
+
